@@ -9,14 +9,14 @@ r = (sqrt((e^2)/n))*ones(n,1); %para que su módulo sea el mismo que el del erro
 d = zeros(n,1);
 u = zeros(n,1);
 
-k = 1;
+k = 0;
 while k <= m && norm(r) >= e 
+    k = k + 1;
     for i=1:n
         r(i) = b(i) - (A(i,1:n)*u(1:n));
         d(i) = r(i)/A(i,i);
         u(i) = u(i) + d(i);
     end
-    k = k + 1;
 end
 
 disp(['En ' num2str(k-1) ' iteraciones se ha obtenido el siguiente resultado :']);
