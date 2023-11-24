@@ -11,15 +11,15 @@ d = zeros(n,1);
 u = zeros(n,1);
 v = zeros(n,1); %Se comportará como u^(k+1)
 
-k = 1;
+k = 0;
 while k <= m && norm(r) >= e 
+    k = k + 1;
     for i=1:n
         r(i) = b(i) - A(i,1:i-1)*v(1:i-1) - A(i,i:n)*u(i:n);
         d(i) = w*(r(i)/A(i,i));
         v(i) = u(i) + d(i);
     end
-    k = k + 1;
 end
 
-disp(['En ' num2str(k-1) ' iteraciones se ha obtenido el siguiente resultado :']);
+disp(['En ' num2str(k) ' iteraciones se ha obtenido el siguiente resultado :']);
 disp(v)
