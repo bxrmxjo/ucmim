@@ -27,11 +27,12 @@ end
 flag_cholesky = true;
 
 for i=1:n
-    if A(i,i)-((A(i,1:i-1)*A(i,1:i-1)')) <= 0
+    beta = A(i,i)-((A(i,1:i-1)*A(i,1:i-1)'));
+    if beta <= 0
         flag_cholesky = false;
         break;
     else
-        A(i,i) = sqrt(A(i,i)-((A(i,1:i-1)*A(i,1:i-1)')));
+        A(i,i) = sqrt(beta);
         for j=i+1:n
             A(j,i) = (A(i,j)-(A(i,1:i-1)*A(j,1:i-1)'))/A(i,i);
         end
