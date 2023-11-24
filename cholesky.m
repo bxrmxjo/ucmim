@@ -24,13 +24,10 @@ end
 
 
 
-flag_cholesky = true;
-
 for i=1:n
     beta = A(i,i)-((A(i,1:i-1)*A(i,1:i-1)'));
     if beta <= 0
-        flag_cholesky = false;
-        break;
+        error("La matriz A introducida no es definida positiva");
     else
         A(i,i) = sqrt(beta);
         for j=i+1:n
@@ -39,9 +36,6 @@ for i=1:n
     end
 end
 
-if ~flag_cholesky
-    error("La matriz A introducida no es definida positiva");
-end
 
 flag = 1;
 while flag == 1
