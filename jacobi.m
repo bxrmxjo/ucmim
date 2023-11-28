@@ -12,7 +12,7 @@ nb = norm(b);
 
 
 %Si algún elemento de la diagonal de A es 0, no se podrá realizar el método de Jacobi.
-diagonal = diag(A)
+diagonal = diag(A);
 for i=1:n
     if diagonal(i) == 0
         error("La matriz A no admite método de Jacobi por tener un elemento nulo en su diagonal")
@@ -20,7 +20,7 @@ for i=1:n
 end
 
 k = 0;
-while k <= m && norm(r) >= e*nb 
+while k < m && norm(r) >= e*nb 
     k = k + 1;
 
     r = b - A*u;
@@ -31,8 +31,11 @@ while k <= m && norm(r) >= e*nb
 end
 
 
+%Se comprueba el motivo de la parada y se devuelve dicho motivo con la información trae consigo.
+if k == m
+    disp("Se ha alcanzado el número máximo de iteraciones, obteniendo el siguiente resultado: ")
+else
+    disp(['En ' num2str(k) ' iteraciones se ha obtenido el siguiente resultado :'])
+end
 
-%Mostrar o que se ha alcanzado las iteraciones o que se ha obtenido el
-%resultado con precision correcta en x iteraciones
-disp(['En ' num2str(k) ' iteraciones se ha obtenido el siguiente resultado :']);
 disp(u)
