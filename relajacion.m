@@ -9,17 +9,16 @@ n = size(A,1);
 r = (sqrt((e^2)/n))*ones(n,1); %para que su módulo sea el mismo que el del error deseado, y se ejecute el bucle while
 d = zeros(n,1);
 u = zeros(n,1);
-v = zeros(n,1); %Se comportará como u^(k+1)
 
 k = 0;
 while k <= m && norm(r) >= e 
     k = k + 1;
     for i=1:n
-        r(i) = b(i) - A(i,1:i-1)*v(1:i-1) - A(i,i:n)*u(i:n);
+        r(i) = b(i) - A(i,1:i-1)*u(1:i-1) - A(i,i:n)*u(i:n);
         d(i) = w*(r(i)/A(i,i));
-        v(i) = u(i) + d(i);
+        u(i) = u(i) + d(i);
     end
 end
 
 disp(['En ' num2str(k) ' iteraciones se ha obtenido el siguiente resultado :']);
-disp(v)
+disp(u)
