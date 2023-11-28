@@ -10,6 +10,15 @@ u = zeros(n,1);
 r = b - A*u;
 nb = norm(b);
 
+
+%Si algún elemento de la diagonal de A es 0, no se podrá realizar el método de Jacobi.
+diagonal = diag(A)
+for i=1:n
+    if diagonal(i) == 0
+        error("La matriz A no admite método de Jacobi por tener un elemento nulo en su diagonal")
+    end
+end
+
 k = 0;
 while k <= m && norm(r) >= e*nb 
     k = k + 1;
