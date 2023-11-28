@@ -25,7 +25,6 @@ while k < m && norm(r) >= e*nb
 
     r = b - A*u;
     d = r./diag(A); %El comando "./" se usa para dividir componente a componente.
-    %cuidado con diagonales == 0
     u = u + d;
 
 end
@@ -33,9 +32,9 @@ end
 
 %Se comprueba el motivo de la parada y se devuelve dicho motivo con la información trae consigo.
 if k == m
-    disp("Se ha alcanzado el número máximo de iteraciones, obteniendo el siguiente resultado: ")
+    disp("Se ha alcanzado el número máximo de iteraciones, obteniendo el siguiente resultado: ");
 else
-    disp(['En ' num2str(k) ' iteraciones se ha obtenido el siguiente resultado :'])
+    disp(['En ' num2str(k) ' iteraciones se ha obtenido el siguiente resultado :']);
 end
 
-disp(u)
+disp(u);
