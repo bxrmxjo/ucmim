@@ -11,7 +11,7 @@ d = zeros(n,1);
 u = zeros(n,1);
 
 k = 0;
-while k <= m && norm(r) >= e 
+while k < m && norm(r) >= e 
     k = k + 1;
     for i=1:n
         r(i) = b(i) - A(i,1:i-1)*u(1:i-1) - A(i,i:n)*u(i:n);
@@ -20,5 +20,11 @@ while k <= m && norm(r) >= e
     end
 end
 
-disp(['En ' num2str(k) ' iteraciones se ha obtenido el siguiente resultado :']);
-disp(u)
+%Se comprueba el motivo de la parada y se devuelve dicho motivo con la información trae consigo.
+if k == m
+    disp("Se ha alcanzado el número máximo de iteraciones, obteniendo el siguiente resultado: ");
+else
+    disp(['En ' num2str(k) ' iteraciones se ha obtenido el siguiente resultado :']);
+end
+
+disp(u);
