@@ -16,13 +16,14 @@ while k <= m && norm(r) >= e*nb
 
     r = b - A*u;
     d = r./diag(A); %El comando "./" se usa para dividir componente a componente.
+    %cuidado con diagonales == 0
     u = u + d;
 
 end
 
-%Al salir del bucle, ya sea por alcanzar las iteraciones máximas o por
-%obtener el resultado con la tolerancia deseada, se muestran las
-%iteraciones realizadas.
 
+
+%Mostrar o que se ha alcanzado las iteraciones o que se ha obtenido el
+%resultado con precision correcta en x iteraciones
 disp(['En ' num2str(k) ' iteraciones se ha obtenido el siguiente resultado :']);
 disp(u)
