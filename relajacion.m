@@ -20,6 +20,13 @@ while k < m && norm(r) >= e
     end
 end
 
+
+
+%Falta graficar la precisión
+
+
+
+
 %Se comprueba el motivo de la parada y se devuelve dicho motivo con la información trae consigo.
 if k == m
     disp("Se ha alcanzado el número máximo de iteraciones, obteniendo el siguiente resultado: ");
